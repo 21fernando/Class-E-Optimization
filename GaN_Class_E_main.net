@@ -1,0 +1,36 @@
+* C:\Users\taf27\Desktop\Class-E-Optimization\GaN_Class_E.asc
+V1 VIN 0 PULSE(0 5 0 0.5n 0.5n 6.345n 25.38n)
+R1 VG VIN 1
+V2 VDD 0 {VDD}
+L1 VDD N001 4.7u
+L2 VD N003 66n
+C2 N004 N002 {C2}
+R2 Vout 0 {RL}
+C3 VDD 0 10u
+C4 Vout N006 {C4}
+XU1 VG VD 0 EPC2212
+C1 VD N007 220p
+R3 N007 N010 20m
+L3 N010 0 1.1n
+R5 N001 VD 7m
+C6 VDD VD 1.3p
+R6 VDD VD 20k
+R7 N002 VD 6.4k
+C8 N002 VD 2p
+R10 N002 N003 0.9m
+R8 N005 N004 3m
+L5 Vout N005 0.5n
+R9 N009 N006 3m
+L6 0 N009 0.5n
+C5 VD N008 220p
+R4 N008 N011 20m
+L4 N011 0 1.1n
+.tran 0 8u 7u 1n
+.param C2=620p C4=558p VDD=14 RL=50
+.four 39400000 10 50 V(Vout)
+.measure tran dc_power avg (V(VDD)*I(V2))
+.measure tran power_out avg (V(VOUT)*I(R2))
+.measure tran gate_power avg (V(VIN)*I(V1))
+.lib C:\Users\taf27\Desktop\Class-E-Optimization\EPCGaNLibrary\EPCGaNLibrary.lib
+.backanno
+.end
